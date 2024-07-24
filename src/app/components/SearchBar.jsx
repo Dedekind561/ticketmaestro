@@ -14,8 +14,12 @@ export default function SearchBar() {
     // grab query string from form input
     const params = new URLSearchParams(searchParams);
     // create new instance of URLSearchParams
+    if (query) {
+      params.set('q', query);
+    } else {
+      params.delete('q');
+    }
 
-    params.set('q', query);
     // set the url search params
     replace(`${pathname}?${params.toString()}`);
     // navigate to the url with the provided query string
