@@ -1,3 +1,5 @@
+import SearchBar from './SearchBar';
+
 export default function Header() {
   return (
     <header>
@@ -25,14 +27,7 @@ export default function Header() {
           </svg>
         </div>
       </div>
-      <div className="search-container">
-        <div className="search">
-          <div className="search-form">
-            <input type="text" />
-            <button>Search</button>
-          </div>
-        </div>
-      </div>
+      <SearchBar />
     </header>
   );
 }
