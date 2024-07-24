@@ -1,15 +1,21 @@
 import EventCard from './EventCard.jsx';
 
-async function fetchEvents() {
-  const response = await fetch(
-    `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${process.env.TICKETMASTER_API_KEY}&keyword=jazz&city=Manchester`,
-  );
-  const jsonObject = await response.json();
-  return jsonObject._embedded.events;
+async function fetchEvents({ query }) {
+  return fetch(
+    `https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${process.env.TICKETMASTER_API_KEY}&countryCode=GB&keyword=${query}&dmaId=605&endDate=2024-08-30`,
+  ) // Returns a promise, await async does this under the hood
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (jsonObject) {
+      // console.log(jsonObject._embedded.events,'<-- events');
+      // console.log(jsonObject._embedded.events.pop()._embedded.venues.pop(),'<-- venue');
+      return jsonObject._embedded.events;
+    });
 }
 
-export default async function EventList() {
-  const events_ = await fetchEvents();
+export default async function EventList({ query }) {
+  const events_ = await fetchEvents({ query });
 
   let events = events_.map((item) => {
     let venue = item._embedded.venues.pop();
