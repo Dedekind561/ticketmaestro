@@ -1,8 +1,8 @@
 import EventCard from './EventCard.jsx';
 
-async function fetchEvents() {
+async function fetchEvents({ query }) {
   return fetch(
-    `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${process.env.TICKETMASTER_API_KEY}&keyword=jazz&city=Manchester`,
+    `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${process.env.TICKETMASTER_API_KEY}&keyword=${query}&city=Manchester`,
   ) // Returns a promise, await async does this under the hood
     .then(function (response) {
       return response.json();
@@ -14,8 +14,8 @@ async function fetchEvents() {
     });
 }
 
-export default async function EventList() {
-  const events_ = await fetchEvents();
+export default async function EventList({ query }) {
+  const events_ = await fetchEvents({ query });
 
   let events = events_.map((item) => {
     let venue = item._embedded.venues.pop();
