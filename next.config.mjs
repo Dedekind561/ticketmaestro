@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === 'development') {
   nextConfig = {};
 } else {
   nextConfig = {
-    basePath: '/ticketmaestro',
+    basePath: '/',
     reactStrictMode: true,
   };
 }
