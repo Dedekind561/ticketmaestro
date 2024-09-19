@@ -12,6 +12,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // Add your custom ESLint rules here
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   },
 };
