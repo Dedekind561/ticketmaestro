@@ -10,9 +10,6 @@ export default function EventCard(props) {
         <li className="event-location">{props.location}</li>
         <li className="event-venue">{props.venue}</li>
       </ul>
-      <a href={props.url} className="event-link" target="_blank">
-        Find tickets
-      </a>
     </div>
   );
 }
