@@ -6,7 +6,6 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   nextConfig = {
     basePath: '/ticketmaestro',
-    output: 'export',
     reactStrictMode: true,
   };
 }
