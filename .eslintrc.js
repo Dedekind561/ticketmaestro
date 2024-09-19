@@ -12,6 +12,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off"
   },
