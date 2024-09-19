@@ -1,7 +1,7 @@
 import EventCard from './EventCard.jsx';
 import data from '../data/ticketmaster-api/raw-search-results.json';
 
-async function fetchEvents({ query }) {
+async function fetchEvents() {
   const jsonObject = data;
   // return fetch(
   //   `https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${process.env.TICKETMASTER_API_KEY}&countryCode=GB&keyword=${query}&dmaId=605&endDate=2024-08-30`,
